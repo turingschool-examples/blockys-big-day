@@ -28,4 +28,10 @@ describe('World', function () {
     assert.deepEqual(world.blocks, []);
   });
 
+  it('should have a "enemies" property, which starts out as an empty array', function () {
+    var world = new World(100, 100);
+    assert.isArray(world.enemies);
+    assert.deepEqual(world.enemies, []);
+  });
+
 });

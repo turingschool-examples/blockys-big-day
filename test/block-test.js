@@ -341,6 +341,32 @@ describe('Block', function () {
 
     });
 
+  });
+
+  describe('Collision detection', function () {
+
+    it('should have a method called isCollidingWith()', function () {
+      var block = new Block(0, 0, 10, 10);
+      assert.isFunction(block.isCollidingWith);
+    });
+
+    it('should return true if it is colliding with the argument passed in', function () {
+      var firstBlock = new Block(0, 0, 10, 10);
+      var secondBlock = new Block(1, 1, 10, 10);
+
+      var colliding = firstBlock.isCollidingWith(secondBlock)
+
+      assert.isTrue(colliding);
+    });
+
+    it('should return false if it is not colliding with the argument passed in', function () {
+      var firstBlock = new Block(0, 0, 10, 10);
+      var secondBlock = new Block(1000, 1000, 10, 10);
+
+      var colliding = firstBlock.isCollidingWith(secondBlock)
+
+      assert.isFalse(colliding);
+    });
 
   });
 
